@@ -1,9 +1,12 @@
 import tensorflow as tf
 
 
-class BaseModel:
+class BaseModel(object):
     def __init__(self, config):
         self.config = config
+        self.cur_epoch_tensor = None
+        self.global_step_tensor = None
+        self.increment_cur_epoch_tensor = None
         # init the global step
         self.init_global_step()
         # init the epoch counter

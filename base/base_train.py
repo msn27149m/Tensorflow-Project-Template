@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 
-class BaseTrain:
+class BaseTrain(object):
     def __init__(self, sess, model, data, config, logger):
         self.model = model
         self.logger = logger
@@ -13,10 +13,10 @@ class BaseTrain:
 
     def train(self):
         for cur_epoch in range(self.model.cur_epoch_tensor.eval(self.sess), self.config.num_epochs + 1, 1):
-            self.train_epoch()
+            self.train_epoch(cur_epoch)
             self.sess.run(self.model.increment_cur_epoch_tensor)
 
-    def train_epoch(self):
+    def train_epoch(self, epoch_n):
         """
         implement the logic of epoch:
         -loop over the number of iterations in the config and call the train step

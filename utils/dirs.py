@@ -1,9 +1,10 @@
 import os
 
 
-def create_dirs(dirs):
+def create_dirs(dirs: object) -> object:
     """
     dirs - a list of directories to create if these directories are not found
+    :rtype:
     :param dirs:
     :return exit_code: 0:success -1:failed
     """
